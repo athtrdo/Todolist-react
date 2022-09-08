@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { RiEditCircleFill } from 'react-icons/ri';
-import {BsCheck2Circle} from 'react-icons/bs';
+import { BsCheck2Circle } from 'react-icons/bs';
 
 
 function Todo({ todos, complateTodo, removeTodo, updateTodo }) {
@@ -20,7 +20,7 @@ function Todo({ todos, complateTodo, removeTodo, updateTodo }) {
     }
     const [check, setCheck] = useState(false);
     const [checked, setChecked] = useState('')
-    const [finished,setFinished] = useState('');
+    const [finished, setFinished] = useState('');
 
     let checkBtn;
     if (check) {
@@ -37,11 +37,7 @@ function Todo({ todos, complateTodo, removeTodo, updateTodo }) {
             setFinished('finished');
             setChecked('checked');
         }
-    }
-
-
-
-
+    };
     if (edit.id) {
         return <TodoForm edit={edit} onSubmit={submitUpdate} />;
     }
@@ -51,17 +47,10 @@ function Todo({ todos, complateTodo, removeTodo, updateTodo }) {
             key={index}>
 
             <div key={todo.id} onClick={() => complateTodo(todo.id)}>
-            <BsCheck2Circle className={`btn check-btn ${checked}`} onClick={() => { handleCheck() }} />{checkBtn}
+                <BsCheck2Circle className={`btn check-btn ${checked}`} onClick={() => { handleCheck() }} />{checkBtn}
                 {todo.text}
             </div>
-
-           
-
-
             <div className='icons'>
-
-           
-            
                 <RiCloseCircleFill
                     onClick={() => removeTodo(todo.id)}
                     className='delete-icon' />
@@ -69,12 +58,7 @@ function Todo({ todos, complateTodo, removeTodo, updateTodo }) {
                 <RiEditCircleFill
                     onClick={() => setEdit({ id: todo.id, value: todo.tex })}
                     className='edit-icon' />
-
-
             </div>
-            
-                            
-
         </div>
     ))
 }
